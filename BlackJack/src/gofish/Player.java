@@ -3,7 +3,7 @@
  * Students can modify and extend to implement their game.
  * Add your name as a modifier and the date!
  */
-package blackjack;
+package gofish;
 
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
@@ -12,14 +12,17 @@ package blackjack;
 public abstract class Player 
 {
     private String playerID; //the unique ID for this player
+    private GroupOfCards hand;
     
-    /**
-     * A constructor that allows you to set the player's unique ID
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name)
+/**
+ * 
+ * @param name
+ * @param hand 
+ */
+    public Player(String name, GroupOfCards hand)
     {
         playerID= name;
+        this.hand = hand;
     }
     
     /**

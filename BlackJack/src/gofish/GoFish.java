@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package blackjack;
+package gofish;
 
 /**
  *
  * @author lucas
  */
-public class Blackjack {
+public class GoFish {
     
     public static void main(String[] args){
         
