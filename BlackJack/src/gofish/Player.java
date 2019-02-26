@@ -12,16 +12,16 @@ package gofish;
 public abstract class Player 
 {
     private String playerID; //the unique ID for this player
-    private GroupOfCards hand;
+    private CardHand hand;
     
 /**
  * 
  * @param name
  * @param hand 
  */
-    public Player(String name, GroupOfCards hand)
+    public Player(String name, CardHand hand)
     {
-        playerID= name;
+        playerID = name;
         this.hand = hand;
     }
     

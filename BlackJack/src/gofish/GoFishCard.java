@@ -12,6 +12,7 @@ package gofish;
 public class GoFishCard extends Card{
 
     private enum value{TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
+    private enum suit {HEARTS, SPADES, CLUBS, DIAMONDS};
     private int value;
     private int suit;
     
