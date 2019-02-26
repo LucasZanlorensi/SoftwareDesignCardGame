@@ -46,6 +46,7 @@ public class GoFish
                     players = input.nextInt();
                     
                     if(players < 2 || players > 4)
+                        System.out.println("Please enter a number of players from 2-4!");
                 
                 }while(players < 2 || players > 4);
                 
