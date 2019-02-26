@@ -16,13 +16,13 @@ public abstract class Game
 {
     private final String gameName;//the title of the game
     private ArrayList <Player> players;// the players of the game
-    private GroupOfCards deck;// the game deck
+    private DeckOfCards deck;// the game deck
     
-    public Game(String givenName)
+    public Game(String givenName, int numberOfPlayers)
     {
         gameName = givenName;
         players = new ArrayList();
-        deck = new GroupOfCards(52);
+        deck = new DeckOfCards(52);
     }
 
     /**
