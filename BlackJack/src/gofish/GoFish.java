@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package gofish;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -19,7 +19,9 @@ public class GoFish
         Scanner input = new Scanner(System.in);
         
         String playAgain;
-        int players;
+        ArrayList <Player> Players = new ArrayList<Player>();
+        int numOfPlayers;
+        
         
         
         do 
@@ -43,12 +45,21 @@ public class GoFish
                     
                     System.out.println("How many players would you like to play with? (min 2, max 4):");
 
-                    players = input.nextInt();
+                    numOfPlayers = input.nextInt();
                     
-                    if(players < 2 || players > 4)
+                    if(numOfPlayers < 2 || numOfPlayers > 4)
                         System.out.println("Please enter a number of players from 2-4!");
                 
-                }while(players < 2 || players > 4);
+                }while(numOfPlayers < 2 || numOfPlayers > 4);
+                
+                for(int i = 1 ; i <= numOfPlayers ; i++)
+                {
+                
+                    System.out.println("Please enter Player " + i + "'s Name: ");
+                    
+                    Players.add(new Player(input.next()));
+                
+                }
                 
             }
                 
