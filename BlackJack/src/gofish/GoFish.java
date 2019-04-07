@@ -29,10 +29,11 @@ public class GoFish extends Game{
         
         computer.addCardsToHand(pool.getCards(7));
         player.addCardsToHand(pool.getCards(7));
-        
+        player.showHand();
+        computer.showHand();
+        System.out.println("break");
         
         do {
-
             
             
         }

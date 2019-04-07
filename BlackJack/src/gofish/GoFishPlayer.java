@@ -26,6 +26,15 @@ public class GoFishPlayer extends Player{
         hand.addCard(pool.getCardOnTop());
     }
     
+    public void showHand() {
+        System.out.println(super.getPlayerID() + "'s hand:");
+        for (GoFishCard card : hand.getCards()) {
+            System.out.println(card.getValue().toString() + " OF " + card.getSuit().toString());
+        }
+        
+        System.out.println("");
+    }
+    
     @Override
     public void play() {
         System.out.println(super.getPlayerID() + "'s turn");
