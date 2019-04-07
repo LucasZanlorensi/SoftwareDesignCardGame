@@ -25,19 +25,19 @@ public class Main
         do 
         {
             do{       
-                System.out.println("Do you want to play Go Fish? (Y/N)");
+                System.out.print("Do you want to play Go Fish? (Y/N): ");
         
                 playAgain = input.next().toUpperCase();
                 
                 if(!playAgain.equals("Y") && !playAgain.equals("N"))
-                    System.out.println("Please enter either 'Y' for yes or 'N' for no!");
+                    System.out.print("Please enter either 'Y' for yes or 'N' for no!: ");
             
             }while(!playAgain.equals("Y") && !playAgain.equals("N"));
             
             if(playAgain.equals("Y"))
             {
                 if (players == null){
-                    System.out.println("Please write your name");
+                    System.out.print("Please write your name: ");
                     String playerName = input.next();
                     players = new ArrayList<>();
                     players.add(new GoFishPlayer(playerName));
@@ -49,9 +49,6 @@ public class Main
                 
                 game.setPlayers(players);
                 game.play();
-                
-                
-               
             }
             
         }while(playAgain.equals("Y") && !playAgain.equals("N"));

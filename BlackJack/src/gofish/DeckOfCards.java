@@ -36,6 +36,7 @@ public class DeckOfCards extends GroupOfCards{
 
     }
     
+    
     public DeckOfCards() {
         super(0);
     }
@@ -46,6 +47,9 @@ public class DeckOfCards extends GroupOfCards{
         return cards;
     }
 
+    public GoFishCard getCardOnTop() {
+        return cards.remove(0);
+    }
     
     @Override
     public void shuffle(){

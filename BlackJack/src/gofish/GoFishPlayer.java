@@ -9,15 +9,16 @@ package gofish;
  */
 public class GoFishPlayer extends Player{
 
-    
+    private CardHand hand;
     
     public GoFishPlayer(String name) {
         super(name);
+        hand = new CardHand(0);
     }
 
     @Override
     public void play() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(super.getPlayerID() + "'s turn");
     }
     
 }
