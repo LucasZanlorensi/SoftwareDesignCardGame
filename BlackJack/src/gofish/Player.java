@@ -12,17 +12,15 @@ package gofish;
 public abstract class Player 
 {
     private String playerID; //the unique ID for this player
-    private CardHand hand;
     
 /**
  * 
  * @param name
  * @param hand 
  */
-    public Player(String name, CardHand hand)
+    public Player(String name)
     {
         playerID = name;
-        this.hand = hand;
     }
     
     /**
