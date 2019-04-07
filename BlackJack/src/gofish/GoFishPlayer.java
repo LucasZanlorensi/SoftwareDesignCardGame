@@ -31,4 +31,16 @@ public class GoFishPlayer extends Player{
         System.out.println(super.getPlayerID() + "'s turn");
     }
     
+    public ArrayList <GoFishCard> giveCards(GoFishCard.value value) {
+        ArrayList <GoFishCard> cardsToGive = new ArrayList<>();
+        
+        for (GoFishCard card : hand.getCards()) {
+            System.out.println(card.getValue());
+            if (card.getValue() == value) {
+                cardsToGive.add(hand.removeCard(card));
+            }
+        }
+        return cardsToGive;
+    }
+    
 }

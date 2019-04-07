@@ -32,8 +32,8 @@ public class CardHand extends GroupOfCards{
         this.cards.addAll(cards);
     }
     
-    public void removeCard(GoFishCard card) {
-        this.cards.remove(card);
+    public GoFishCard removeCard(GoFishCard card) {
+        return cards.remove(cards.indexOf(card));
     }
     
     public void addCard(GoFishCard card){

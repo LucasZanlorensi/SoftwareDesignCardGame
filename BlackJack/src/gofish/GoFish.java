@@ -24,15 +24,16 @@ public class GoFish extends Game{
     
     @Override
     public void play() {
-        
+        GoFishPlayer player = ((GoFishPlayer) super.getPlayers().get(0));
         pool.shuffle();
         
         computer.addCardsToHand(pool.getCards(7));
-        ((GoFishPlayer) super.getPlayers().get(0)).addCardsToHand(pool.getCards(7));
+        player.addCardsToHand(pool.getCards(7));
+        
         
         do {
 
-            ((GoFishPlayer) super.getPlayers().get(0)).play();
+            
             
         }
         while (pool.getDeckSize() > 0);
