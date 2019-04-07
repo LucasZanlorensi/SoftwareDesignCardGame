@@ -11,7 +11,6 @@ import java.util.ArrayList;
  */
 public class GoFish extends Game{
     
-    ArrayList<GoFishPlayer> players;
     DeckOfCards pool;
     
     
@@ -22,14 +21,19 @@ public class GoFish extends Game{
     }
     
     @Override
-    public void play() 
-    {
-
+    public void play() {
         pool.shuffle();
-        for (GoFishCard card : pool.getCards())
-            System.out.println(card.getValue());
+        
+        do {
+
+            ((GoFishPlayer) super.getPlayers().get(0)).play();
+            
+        }
+        while (pool.getCards().size() > 0);
     }
 
+    
+    
     @Override
     public void declareWinner() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
