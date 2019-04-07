@@ -39,12 +39,15 @@ public class Main
                 if (players == null){
                     System.out.println("Please write your name");
                     String playerName = input.next();
+                    players = new ArrayList<>();
                     players.add(new GoFishPlayer(playerName));
                 }
                 if (game == null) {
                     game = new GoFish("GoFish");
                 }
                 game.setPlayers(players);
+                
+                DeckOfCards.generateDeck();
                 
             }
         }while(playAgain.equals("Y") && !playAgain.equals("N"));
