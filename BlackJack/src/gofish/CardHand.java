@@ -15,6 +15,7 @@ public class CardHand extends GroupOfCards{
     
     CardHand(int size){
         super(size);
+        cards = new ArrayList<>();
     }
         
     /**
@@ -27,8 +28,12 @@ public class CardHand extends GroupOfCards{
     /**
      * @param cards the cards to set
      */
-    public void setCards(ArrayList <GoFishCard> cards) {
-        this.cards = cards;
+    public void addCards(ArrayList <GoFishCard> cards) {
+        this.cards.addAll(cards);
+    }
+    
+    public void removeCard(GoFishCard card) {
+        this.cards.remove(card);
     }
     
     public void addCard(GoFishCard card){

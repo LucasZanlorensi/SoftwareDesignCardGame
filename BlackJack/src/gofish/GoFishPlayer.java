@@ -19,7 +19,7 @@ public class GoFishPlayer extends Player{
     }
     
     public void addCardsToHand(ArrayList <GoFishCard> cards){
-        
+        hand.addCards(cards);
     }
 
     public void fish(DeckOfCards pool){

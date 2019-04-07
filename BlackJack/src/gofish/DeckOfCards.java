@@ -43,12 +43,20 @@ public class DeckOfCards extends GroupOfCards{
     /**
      * @return the cards
      */
-    public ArrayList <GoFishCard> getCards() {
-        return cards;
+    public ArrayList <GoFishCard> getCards(int numberOfCards) {
+        ArrayList cardsRemoved = new ArrayList();
+        for (int i = 0; i < numberOfCards; i++) {
+            cardsRemoved.add(cards.remove(0));
+        }
+        return cardsRemoved;
     }
 
     public GoFishCard getCardOnTop() {
         return cards.remove(0);
+    }
+    
+    public int getDeckSize() {
+        return this.cards.size();
     }
     
     @Override

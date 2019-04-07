@@ -27,13 +27,15 @@ public class GoFish extends Game{
         
         pool.shuffle();
         
+        computer.addCardsToHand(pool.getCards(7));
+        ((GoFishPlayer) super.getPlayers().get(0)).addCardsToHand(pool.getCards(7));
         
         do {
 
             ((GoFishPlayer) super.getPlayers().get(0)).play();
             
         }
-        while (pool.getCards().size() > 0);
+        while (pool.getDeckSize() > 0);
     }
 
     

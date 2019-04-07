@@ -52,7 +52,7 @@ public class GoFishCard extends Card{
     
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return "Suit:" + this.suit + " Value: " + this.value;
     }
 
 }
