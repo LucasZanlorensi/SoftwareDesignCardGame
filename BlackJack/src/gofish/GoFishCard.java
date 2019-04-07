@@ -11,42 +11,36 @@ package gofish;
  */
 public class GoFishCard extends Card{
 
-    private enum value{TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
-    private enum suit {HEARTS, SPADES, CLUBS, DIAMONDS};
-    private int value;
-    private int suit;
+    public enum value{TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
+    public enum suit {HEARTS, SPADES, CLUBS, DIAMONDS};
+    private value value;
+    private suit suit;
+       
+    public GoFishCard(suit c, value v)
+    {
+
+        this.suit = c;
+        this.value = v;
+
+    }
     
     /**
      * @return the value
      */
-    public int getValue() {
+    public value getValue() {
         return value;
     }
 
     /**
      * @param value the value to set
      */
-    public void setValue(int value) {
+    public void setValue(value value) {
         this.value = value;
     }
-
-    /**
-     * @return the suit
-     */
-    public int getSuit() {
-        return suit;
-    }
-
-    /**
-     * @param suit the suit to set
-     */
-    public void setSuit(int suit) {
-        this.suit = suit;
-    }
     
-
-    
-   public String toString(){
-        return "";
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
+
 }
