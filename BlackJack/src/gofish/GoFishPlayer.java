@@ -3,6 +3,8 @@
  */
 package gofish;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lucas
@@ -15,7 +17,15 @@ public class GoFishPlayer extends Player{
         super(name);
         hand = new CardHand(0);
     }
+    
+    public void addCardsToHand(ArrayList <GoFishCard> cards){
+        
+    }
 
+    public void fish(DeckOfCards pool){
+        hand.addCard(pool.getCardOnTop());
+    }
+    
     @Override
     public void play() {
         System.out.println(super.getPlayerID() + "'s turn");

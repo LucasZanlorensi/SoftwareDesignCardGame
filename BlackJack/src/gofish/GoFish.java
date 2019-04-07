@@ -27,6 +27,7 @@ public class GoFish extends Game{
         
         pool.shuffle();
         
+        
         do {
 
             ((GoFishPlayer) super.getPlayers().get(0)).play();

@@ -31,6 +31,10 @@ public class CardHand extends GroupOfCards{
         this.cards = cards;
     }
     
+    public void addCard(GoFishCard card){
+        cards.add(card);
+    }
+    
     // TODO
     /**
      * 
