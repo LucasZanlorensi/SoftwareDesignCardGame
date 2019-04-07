@@ -41,6 +41,7 @@ public class Main
                     String playerName = input.next();
                     players = new ArrayList<>();
                     players.add(new GoFishPlayer(playerName));
+                    players.add(new GoFishPlayer("Computer"));
                 }
                 if (game == null) {
                     game = new GoFish("GoFish");
@@ -49,7 +50,9 @@ public class Main
                 
                 DeckOfCards.generateDeck();
                 
+               
             }
+            
         }while(playAgain.equals("Y") && !playAgain.equals("N"));
     }
 }
