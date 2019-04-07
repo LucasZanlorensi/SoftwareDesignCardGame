@@ -12,7 +12,26 @@ import java.util.ArrayList;
 public class DeckOfCards extends GroupOfCards{
 
     
-    private ArrayList <GoFishCard> cards;
+    private static ArrayList <GoFishCard> cards;
+    
+    public static void generateDeck() 
+    {
+
+        cards = new ArrayList<>();
+
+        for (GoFishCard.suit s : GoFishCard.suit.values()) {
+            for (GoFishCard.value v : GoFishCard.value.values()) {
+
+                cards.add(new GoFishCard(s, v));
+                System.out.println("Suit: " + s + " Value: " + v);
+
+            }
+
+        }
+
+        System.out.println(cards.size());
+
+    }
     
     public DeckOfCards(int size) {
         super(size);
