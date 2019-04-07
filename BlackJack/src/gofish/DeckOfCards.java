@@ -20,9 +20,14 @@ public class DeckOfCards extends GroupOfCards{
 
         cards = new ArrayList<>();
 
-        for (GoFishCard.value v : GoFishCard.value.values()) {
-            for (GoFishCard.suit s : GoFishCard.suit.values()) {
+        for (GoFishCard.value v : GoFishCard.value.values()) 
+        {
+            
+            for (GoFishCard.suit s : GoFishCard.suit.values()) 
+            {
+                
                 cards.add(new GoFishCard(s, v));
+            
             }
 
         }
