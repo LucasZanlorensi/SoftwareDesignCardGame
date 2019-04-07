@@ -24,6 +24,18 @@ public class GoFishCard extends Card{
 
     }
     
+    public suit getSuit(){
+    
+        return suit;
+    
+    }
+    
+    public void setSuit(suit suit){
+    
+        this.suit = suit;
+    
+    }
+    
     /**
      * @return the value
      */
