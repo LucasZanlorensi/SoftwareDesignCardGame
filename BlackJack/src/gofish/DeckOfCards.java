@@ -4,6 +4,7 @@
 package gofish;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -12,19 +13,16 @@ import java.util.ArrayList;
 public class DeckOfCards extends GroupOfCards{
 
     
-    private static ArrayList <GoFishCard> cards;
+    private ArrayList <GoFishCard> cards;
     
-    public static void generateDeck() 
+    public void generateDeck() 
     {
 
         cards = new ArrayList<>();
 
-        for (GoFishCard.suit s : GoFishCard.suit.values()) {
-            for (GoFishCard.value v : GoFishCard.value.values()) {
-
+        for (GoFishCard.value v : GoFishCard.value.values()) {
+            for (GoFishCard.suit s : GoFishCard.suit.values()) {
                 cards.add(new GoFishCard(s, v));
-                System.out.println("Suit: " + s + " Value: " + v);
-
             }
 
         }
@@ -33,8 +31,8 @@ public class DeckOfCards extends GroupOfCards{
 
     }
     
-    public DeckOfCards(int size) {
-        super(size);
+    public DeckOfCards() {
+        super(0);
     }
     /**
      * @return the cards
@@ -43,6 +41,12 @@ public class DeckOfCards extends GroupOfCards{
         return cards;
     }
 
+    
+    @Override
+    public void shuffle(){
+        Collections.shuffle(cards);
+    }
+    
     /**
      * @param cards the cards to set
      */

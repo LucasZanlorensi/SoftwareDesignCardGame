@@ -46,9 +46,10 @@ public class Main
                 if (game == null) {
                     game = new GoFish("GoFish");
                 }
-                game.setPlayers(players);
                 
-                DeckOfCards.generateDeck();
+                game.setPlayers(players);
+                game.play();
+                
                 
                
             }

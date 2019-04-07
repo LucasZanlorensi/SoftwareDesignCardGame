@@ -12,17 +12,22 @@ import java.util.ArrayList;
 public class GoFish extends Game{
     
     ArrayList<GoFishPlayer> players;
+    DeckOfCards pool;
     
     
     public GoFish(String givenName) {
         super(givenName);
+        pool = new DeckOfCards();
+        pool.generateDeck();
     }
     
     @Override
     public void play() 
     {
-        
-        
+
+        pool.shuffle();
+        for (GoFishCard card : pool.getCards())
+            System.out.println(card.getValue());
     }
 
     @Override
