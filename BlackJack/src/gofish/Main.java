@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package gofish;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,7 @@ public class Main
         Scanner input = new Scanner(System.in);
         
         String playAgain = "";
-        GoFishPlayer player = null;
+        ArrayList<Player> players = null;
         GoFish game = null;
         
         do 
@@ -35,13 +36,16 @@ public class Main
             
             if(playAgain.equals("Y"))
             {
-                if (player == null){
+                if (players == null){
+                    System.out.println("Please write your name");
                     String playerName = input.next();
-                    player = new GoFishPlayer(playerName);        
+                    players.add(new GoFishPlayer(playerName));
                 }
                 if (game == null) {
                     game = new GoFish("GoFish");
                 }
+                game.setPlayers(players);
+                
             }
         }while(playAgain.equals("Y") && !playAgain.equals("N"));
     }

@@ -3,15 +3,20 @@
  */
 package gofish;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lucas
  */
 public class GoFish extends Game{
 
+    ArrayList<GoFishPlayer> players;
+    
     public GoFish(String givenName) {
         super(givenName);
     }
+    
 
     @Override
     public void play() {
