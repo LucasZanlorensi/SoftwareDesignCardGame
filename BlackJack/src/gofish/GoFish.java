@@ -9,8 +9,8 @@ package gofish;
  */
 public class GoFish extends Game{
 
-    public GoFish(String gameName) {
-        super(gameName);
+    public GoFish(String givenName) {
+        super(givenName);
     }
 
     @Override
