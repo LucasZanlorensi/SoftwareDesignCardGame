@@ -34,11 +34,12 @@ public class GoFish extends Game{
         
         computer.addCardsToHand(pool.getCards(7));
         player.addCardsToHand(pool.getCards(7));
+        
         player.showHand();
         computer.showHand();
-        System.out.println("break");
         
         GoFishCard.value userChoice = null;
+        ArrayList <GoFishCard> cardsTakenFromcomputer = new ArrayList<>();
         
         do {
             
@@ -72,12 +73,11 @@ public class GoFish extends Game{
             }while(!validGuess);
             
             
-            if(computer.giveCards(userChoice).size() > 0)
-            {
-            
-                player.checkHand(userChoice);
-                
-            
+            cardsTakenFromcomputer = computer.giveCards(userChoice);
+            //checks if the computer had the card the user asked for
+            //if yes, add the card(s) to the player's hand
+            if(cardsTakenFromcomputer.size() > 0) {
+                player.addCardsToHand(cardsTakenFromcomputer);
             }
             
             
