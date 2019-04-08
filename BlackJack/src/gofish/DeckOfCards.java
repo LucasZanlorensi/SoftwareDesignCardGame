@@ -32,7 +32,7 @@ public class DeckOfCards extends GroupOfCards{
 
         }
 
-        System.out.println(cards.size());
+        //System.out.println(cards.size());
 
     }
     

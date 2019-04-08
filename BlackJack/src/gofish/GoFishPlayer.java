@@ -4,6 +4,7 @@
 package gofish;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -31,12 +32,10 @@ public class GoFishPlayer extends Player{
     }
     
     public void showHand() {
-        System.out.println(super.getPlayerID() + "'s hand:");
+        System.out.println("\n" + super.getPlayerID() + "'s hand:");
         for (GoFishCard card : hand.getCards()) {
             System.out.println(card.getValue().toString() + " OF " + card.getSuit().toString());
         }
-        
-        System.out.println("");
     }
     
     @Override
@@ -74,13 +73,23 @@ public class GoFishPlayer extends Player{
     
     public ArrayList <GoFishCard> giveCards(GoFishCard.value value) {
         ArrayList <GoFishCard> cardsToGive = new ArrayList<>();
+        GoFishCard card = null;
+        ArrayList <GoFishCard> cardsToRemove = new ArrayList<>();
         
-        for (GoFishCard card : hand.getCards()) {
-            System.out.println(card.getValue());
+        //iterates all the hand and adds to cardsToRemove, an auxiliary array of the cards matched, so they can be removed later
+        for (Iterator<GoFishCard> cards = hand.getCards().iterator(); cards.hasNext();) {
+            card = cards.next();
+            //System.out.println(card.getValue());
             if (card.getValue() == value) {
-                cardsToGive.add(hand.removeCard(card));
+                cardsToRemove.add(card);
             }
         }
+        
+        //removes the cards
+        for (Iterator<GoFishCard> iterator = cardsToRemove.iterator(); iterator.hasNext();){
+            cardsToGive.add(hand.getCards().remove(hand.getCards().indexOf(iterator.next())));
+        }
+        
         return cardsToGive;
     }
     

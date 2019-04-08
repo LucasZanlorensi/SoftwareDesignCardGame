@@ -46,7 +46,7 @@ public class GoFish extends Game{
             do
             {
             
-                System.out.println(player.getPlayerID() + " please ask computer for a card.");
+                System.out.print(player.getPlayerID() + " please ask computer for a card: ");
                 
                 playerGuess = input.next().toUpperCase();
                 
@@ -68,7 +68,7 @@ public class GoFish extends Game{
                 }
                 
                 if(!validGuess)
-                    System.out.println("Invalid card. Please ask for another card.");
+                    System.out.print("Invalid card. Please ask for another card: ");
                             
             }while(!validGuess);
             
@@ -77,12 +77,14 @@ public class GoFish extends Game{
             //checks if the computer had the card the user asked for
             //if yes, add the card(s) to the player's hand
             if(cardsTakenFromcomputer.size() > 0) {
+                System.out.printf("Nice! The computer had %d %sS", cardsTakenFromcomputer.size(), userChoice.name());
                 player.addCardsToHand(cardsTakenFromcomputer);
             }
             else
                 player.fish(pool);
             
-            
+            player.showHand();
+            computer.showHand();
         }
         while (pool.getDeckSize() > 0);
     }
