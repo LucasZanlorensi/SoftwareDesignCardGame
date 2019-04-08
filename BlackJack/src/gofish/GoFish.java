@@ -3,7 +3,6 @@
  */
 package gofish;
 
-import gofish.GoFishCard.value;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,6 +15,7 @@ public class GoFish extends Game{
     DeckOfCards pool;
     GoFishPlayer computer;
     String playerGuess;
+    boolean validGuess;
     
     
     public GoFish(String givenName) {
@@ -43,19 +43,33 @@ public class GoFish extends Game{
             do
             {
             
-                System.out.println("Please fish for a card.");
+                System.out.println(player.getPlayerID() + " please ask computer for a card.");
                 
                 playerGuess = input.next().toUpperCase();
                 
                 for(GoFishCard.value v : GoFishCard.value.values())
                 {
                 
-                    if(v != playerGuess)
+                    if(v.toString().equals(playerGuess))
+                    {
+                    
+                        validGuess = true;
+                        break;
+                    
+                    }
+                    
+                    else
+                        validGuess = false;
                         
                 
                 }
+                
+                if(!validGuess)
+                    System.out.println("Invalid card. Please ask for another card.");
             
-            }while("".equals(playerGuess));
+            }while(!validGuess);
+            
+            
             
         }
         while (pool.getDeckSize() > 0);
