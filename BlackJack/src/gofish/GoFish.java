@@ -38,6 +38,7 @@ public class GoFish extends Game{
         computer.showHand();
         System.out.println("break");
         
+        GoFishCard.value userChoice = null;
         do {
             
             do
@@ -54,6 +55,7 @@ public class GoFish extends Game{
                     {
                     
                         validGuess = true;
+                        userChoice = v.valueOf(playerGuess);
                         break;
                     
                     }
@@ -65,6 +67,9 @@ public class GoFish extends Game{
                 
                 if(!validGuess)
                     System.out.println("Invalid card. Please ask for another card.");
+                else
+                    computer.giveCards(userChoice);
+                    
             
             }while(!validGuess);
             
