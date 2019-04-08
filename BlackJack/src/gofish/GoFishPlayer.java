@@ -12,11 +12,13 @@ import java.util.ArrayList;
 public class GoFishPlayer extends Player{
 
     private CardHand hand;
+    private ArrayList<GoFishCard> completedSets;
     private int sets;
     
     public GoFishPlayer(String name) {
         super(name);
         hand = new CardHand(0);
+        completedSets = new ArrayList<>();
         sets = 0;
     }
     
@@ -55,7 +57,11 @@ public class GoFishPlayer extends Player{
     public void countSets(){
         sets = 0;
         for (GoFishCard card : hand.getCards()) {
+            
+            //if the hand has a complete set, increase the counter and add it 
+            //to the completedSet pile
             if (checkHand(card.getValue())) {
+                completedSets.addAll(giveCards(card.getValue()));
                 sets++;
             }
         }
