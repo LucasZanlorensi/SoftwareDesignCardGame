@@ -52,6 +52,20 @@ public class GoFishPlayer extends Player{
         return numberOfCards == 4;
     }
     
+    public void countSets(){
+        sets = 0;
+        for (GoFishCard card : hand.getCards()) {
+            if (checkHand(card.getValue())) {
+                sets++;
+            }
+        }
+    }
+    
+    public int getSets() {
+        countSets();
+        return this.sets;
+    }
+    
     public ArrayList <GoFishCard> giveCards(GoFishCard.value value) {
         ArrayList <GoFishCard> cardsToGive = new ArrayList<>();
         
