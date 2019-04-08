@@ -60,7 +60,6 @@ public class GoFish extends Game{
                     
                     else
                         validGuess = false;
-                        
                 
                 }
                 
