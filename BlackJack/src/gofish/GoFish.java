@@ -75,6 +75,7 @@ public class GoFish extends Game{
             if(computer.giveCards(userChoice).size() > 0)
             {
             
+                player.checkHand(userChoice);
                 
             
             }

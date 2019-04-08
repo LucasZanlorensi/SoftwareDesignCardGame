@@ -12,10 +12,12 @@ import java.util.ArrayList;
 public class GoFishPlayer extends Player{
 
     private CardHand hand;
+    private int sets;
     
     public GoFishPlayer(String name) {
         super(name);
         hand = new CardHand(0);
+        sets = 0;
     }
     
     public void addCardsToHand(ArrayList <GoFishCard> cards){
