@@ -79,6 +79,8 @@ public class GoFish extends Game{
             if(cardsTakenFromcomputer.size() > 0) {
                 player.addCardsToHand(cardsTakenFromcomputer);
             }
+            else
+                player.fish(pool);
             
             
         }
