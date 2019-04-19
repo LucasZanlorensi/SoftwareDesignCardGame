@@ -27,8 +27,10 @@ public class GoFishPlayer extends Player{
         hand.addCards(cards);
     }
 
-    public void fish(DeckOfCards pool){
-        hand.addCard(pool.getCardOnTop());
+    public GoFishCard fish(DeckOfCards pool){
+        GoFishCard card = pool.getCardOnTop();
+        hand.addCard(card);
+        return card;
     }
     
     public void showHand() {
@@ -54,16 +56,37 @@ public class GoFishPlayer extends Player{
     }
     
     public void countSets(){
+        ArrayList<GoFishCard> cardsToAddToCompletedPile = new ArrayList<>();;
         sets = 0;
-        for (GoFishCard card : hand.getCards()) {
-            
-            //if the hand has a complete set, increase the counter and add it 
-            //to the completedSet pile
-            if (checkHand(card.getValue())) {
-                completedSets.addAll(giveCards(card.getValue()));
-                sets++;
+        GoFishCard card = null, card1 = null;
+        
+        for (Iterator<GoFishCard> cards = hand.getCards().iterator(); cards.hasNext();) {
+            int numberOfSimilars = 0;
+            card = cards.next();
+            for (Iterator<GoFishCard> cards1 = hand.getCards().iterator(); cards1.hasNext();) {
+                card1 = cards1.next();
+                if (card.getValue().equals(card1.getValue())) {
+                    numberOfSimilars++;
+                }
+                if (numberOfSimilars == 4) {
+                    System.out.printf("\nYou have 4 of %s", card.getValue().toString());
+                    if (!cardsToAddToCompletedPile.contains(card1))
+                        cardsToAddToCompletedPile.add(card1);
+                    if (!cardsToAddToCompletedPile.contains(card))
+                        cardsToAddToCompletedPile.add(card1);
+                }
+            }  
+        }
+        if (cardsToAddToCompletedPile.size() > 0) {
+            for (Iterator<GoFishCard> iterator = cardsToAddToCompletedPile.iterator(); iterator.hasNext();){
+                completedSets.add(hand.getCards().remove(hand.getCards().indexOf(iterator.next())));
             }
         }
+        for (Iterator<GoFishCard> iterator = completedSets.iterator(); iterator.hasNext();){
+            GoFishCard cardInCompletedSet = iterator.next();
+            System.out.println(cardInCompletedSet + " in completed\n");
+        }
+        
     }
     
     public int getSets() {
