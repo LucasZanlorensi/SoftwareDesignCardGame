@@ -18,7 +18,10 @@ public class GoFish extends Game{
     String playerGuess;
     boolean validGuess;
     
-    
+    /**
+     * Constructor
+     * @param givenName 
+     */
     public GoFish(String givenName) {
         super(givenName);
         computer = new GoFishPlayer("Computer");
@@ -27,6 +30,9 @@ public class GoFish extends Game{
         pool.shuffle();
     }
     
+    /**
+     * The main method for the game, this is where it will loop until the game ends
+     */
     @Override
     public void play() {
         player = ((GoFishPlayer) super.getPlayers().get(0));
@@ -37,9 +43,10 @@ public class GoFish extends Game{
         player.addCardsToHand(pool.getCards(7));
         
         GoFishCard.value userChoice = null, computerChoice = null;
-        ArrayList <GoFishCard> cardsTakenFromComputer = new ArrayList<>();
-        ArrayList <GoFishCard> cardsGivenTocomputer = new ArrayList<>();
+        ArrayList <GoFishCard> cardsTakenFromComputer;
+        ArrayList <GoFishCard> cardsGivenTocomputer;
         
+        //main game loop
         do {
             do {
                 if (pool.getDeckSize() == 0 && computer.getNumberOfCardsInHand() == 0)
@@ -55,10 +62,8 @@ public class GoFish extends Game{
 
                     playerGuess = input.next().toUpperCase();
 
-                    for(GoFishCard.value v : GoFishCard.value.values())
-                    {
-                        if(v.toString().equals(playerGuess))
-                        {                 
+                    for(GoFishCard.value v : GoFishCard.value.values()) {
+                        if(v.toString().equals(playerGuess)) {           
                             validGuess = true;
                             userChoice = v.valueOf(playerGuess);
                             break;
@@ -81,7 +86,7 @@ public class GoFish extends Game{
                 }
                 else {
                     playerHadToFish = true;
-                    if (pool.getDeckSize() > 0){
+                    if (pool.getDeckSize() > 0) {
                         System.out.printf("The computer does not have a %s, go fish!\n", userChoice.name());
                         System.out.printf("You fished a %s", player.fish(pool).getValue());
                     }
@@ -157,8 +162,8 @@ public class GoFish extends Game{
                 computer.countSets();
                 computer.printCompletedSets();
             } while (!computerHadToFish);
-        }
-        while (pool.getDeckSize() > 0 || player.getNumberOfCardsInHand() > 0 || computer.getNumberOfCardsInHand() > 0 );
+        } while (pool.getDeckSize() > 0 || player.getNumberOfCardsInHand() > 0 || computer.getNumberOfCardsInHand() > 0 );
+        
         computer.countSets();
         player.countSets();
         declareWinner();

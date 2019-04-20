@@ -21,8 +21,11 @@ public class GroupOfCards
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
     
-    public GroupOfCards(int givenSize)
-    {
+    /**
+     * Constructor
+     * @param givenSize 
+     */
+    public GroupOfCards(int givenSize) {
         size = givenSize;
     }
     
@@ -30,13 +33,14 @@ public class GroupOfCards
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards()
-    {
+    public ArrayList<Card> showCards() {
         return cards;
     }
     
-    public void shuffle()
-    {
+    /**
+     * shuffles the group of cards, changing the order randomly
+     */
+    public void shuffle() {
         Collections.shuffle(cards);
     }
 
