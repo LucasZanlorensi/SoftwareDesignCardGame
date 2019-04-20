@@ -56,7 +56,9 @@ public class DeckOfCards extends GroupOfCards{
     }
     
     public int getDeckSize() {
-        return this.cards.size();
+        if (cards != null)
+           return this.cards.size();
+        return 0;
     }
     
     @Override

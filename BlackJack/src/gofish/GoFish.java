@@ -42,8 +42,11 @@ public class GoFish extends Game{
         
         do {
             do {
+                if (pool.getDeckSize() == 0 && computer.getNumberOfCardsInHand() == 0)
+                        break;
                 do {
                     playerHadToFish = false;
+                    
                     player.showHand();
                     computer.showHand();
 
@@ -76,9 +79,11 @@ public class GoFish extends Game{
                     player.addCardsToHand(cardsTakenFromComputer);
                 }
                 else {
-                    System.out.printf("The computer does not have a %s, go fish!\n", userChoice.name());
-                    System.out.printf("You got a %s\n", player.fish(pool).getValue());
                     playerHadToFish = true;
+                    if (pool.getDeckSize() > 0){
+                        System.out.printf("The computer does not have a %s, go fish!\n", userChoice.name());
+                        System.out.printf("You got a %s\n", player.fish(pool).getValue());
+                    }
                 }
                 player.countSets();
                 player.printCompletedSets();
@@ -87,7 +92,10 @@ public class GoFish extends Game{
             do {
                 //computer's turn
                 computerHadToFish = false;
-
+                
+                if (pool.getDeckSize() == 0 && player.getNumberOfCardsInHand() == 0)
+                        break;
+                
                 int computerChoiceNumber = (int) (Math.random() * 13);
                 switch (computerChoiceNumber) {
                     case 0:
@@ -139,9 +147,11 @@ public class GoFish extends Game{
                     computer.addCardsToHand(cardsGivenTocomputer);
                 }
                 else {
-                    System.out.println("\nThe computer went fishing!");
-                    computer.fish(pool);
                     computerHadToFish = true;
+                    if (pool.getDeckSize() > 0){
+                        System.out.println("\nThe computer went fishing!");
+                        computer.fish(pool);
+                    }
                 }
                 computer.countSets();
                 computer.printCompletedSets();
@@ -150,7 +160,6 @@ public class GoFish extends Game{
         while (pool.getDeckSize() > 0 || player.getNumberOfCardsInHand() > 0 || computer.getNumberOfCardsInHand() > 0 );
         computer.countSets();
         player.countSets();
-        
         declareWinner();
     }
 
@@ -161,8 +170,8 @@ public class GoFish extends Game{
 
         
         if (computer.getSets() > player.getSets())
-            System.out.printf("Better luck next time! the computer had %d sets, and you had %d sets", computer.getSets(), player.getSets());
+            System.out.printf("\nBetter luck next time! the computer had %d sets, and you had %d sets", computer.getSets(), player.getSets());
         else
-            System.out.printf("You won! You had %d sets, and the computer had %d sets", player.getSets(), computer.getSets());
+            System.out.printf("\nYou won! You had %d sets, and the computer had %d sets", player.getSets(), computer.getSets());
     }
 }

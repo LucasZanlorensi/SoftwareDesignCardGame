@@ -25,7 +25,7 @@ public class Main
         do 
         {
             do{       
-                System.out.print("Do you want to play Go Fish? (Y/N): ");
+                System.out.println("Do you want to play Go Fish? (Y/N): ");
         
                 playAgain = input.next().toUpperCase();
                 

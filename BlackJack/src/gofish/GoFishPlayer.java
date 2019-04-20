@@ -39,7 +39,7 @@ public class GoFishPlayer extends Player{
     }
     
     public int getNumberOfCardsInHand() {
-        return hand.getSize();
+        return hand.getCards().size();
     }
     
     @Override
