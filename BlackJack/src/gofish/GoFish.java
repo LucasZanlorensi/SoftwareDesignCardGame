@@ -48,7 +48,8 @@ public class GoFish extends Game{
                     playerHadToFish = false;
                     
                     player.showHand();
-                    computer.showHand();
+                    //displays the computer hand for debugging purposes
+                    //computer.showHand();
 
                     System.out.print("\n" + player.getPlayerID() + " please ask computer for a card: ");
 
@@ -75,14 +76,14 @@ public class GoFish extends Game{
                 //checks if the computer had the card the user asked for
                 //if yes, add the card(s) to the player's hand
                 if(cardsTakenFromComputer.size() > 0) {
-                    System.out.printf("\nNice! The computer had %d %s(S)", cardsTakenFromComputer.size(), userChoice.name());
+                    System.out.printf("Nice! The computer had %d %s(S)\n", cardsTakenFromComputer.size(), userChoice.name());
                     player.addCardsToHand(cardsTakenFromComputer);
                 }
                 else {
                     playerHadToFish = true;
                     if (pool.getDeckSize() > 0){
                         System.out.printf("The computer does not have a %s, go fish!\n", userChoice.name());
-                        System.out.printf("You got a %s\n", player.fish(pool).getValue());
+                        System.out.printf("You fished a %s", player.fish(pool).getValue());
                     }
                 }
                 player.countSets();
@@ -172,6 +173,6 @@ public class GoFish extends Game{
         if (computer.getSets() > player.getSets())
             System.out.printf("\nBetter luck next time! the computer had %d sets, and you had %d sets", computer.getSets(), player.getSets());
         else
-            System.out.printf("\nYou won! You had %d sets, and the computer had %d sets", player.getSets(), computer.getSets());
+            System.out.printf("\nYou won! You had %d set(s), and the computer had %d set(s)", player.getSets(), computer.getSets());
     }
 }

@@ -24,6 +24,11 @@ public class GoFishPlayer extends Player{
     public void addCardsToHand(ArrayList <GoFishCard> cards){
         hand.addCards(cards);
     }
+    
+    public void clearHandAndSets() {
+        completedSets = new ArrayList<>();
+        hand = new CardHand(0);
+    }
 
     public GoFishCard fish(DeckOfCards pool){
         GoFishCard card = pool.getCardOnTop();

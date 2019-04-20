@@ -25,7 +25,7 @@ public class Main
         do 
         {
             do{       
-                System.out.println("Do you want to play Go Fish? (Y/N): ");
+                System.out.print("\nDo you want to play Go Fish? (Y/N): ");
         
                 playAgain = input.next().toUpperCase();
                 
@@ -41,10 +41,16 @@ public class Main
                     String playerName = input.next();
                     players = new ArrayList<>();
                     players.add(new GoFishPlayer(playerName));
+                } else {
+                    GoFishPlayer gPlayer;
+                    for (Player player : players) {
+                        gPlayer = (GoFishPlayer) player;
+                        gPlayer.clearHandAndSets();
+                    }
                 }
-                if (game == null) {
-                    game = new GoFish("GoFish");
-                }
+                
+                game = new GoFish("GoFish");
+                
                 
                 game.setPlayers(players);
                 game.play();
