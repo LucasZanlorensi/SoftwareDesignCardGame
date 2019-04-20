@@ -52,7 +52,10 @@ public class DeckOfCards extends GroupOfCards{
     }
 
     public GoFishCard getCardOnTop() {
-        return cards.remove(0);
+        if (cards.size() > 0)
+            return cards.remove(0);
+        else
+            return null;
     }
     
     public int getDeckSize() {
