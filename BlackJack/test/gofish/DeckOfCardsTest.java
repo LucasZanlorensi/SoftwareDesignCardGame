@@ -45,8 +45,10 @@ public class DeckOfCardsTest {
      * Test of getCards method, of class DeckOfCards.
      */
     @Test
-    public void testGetCardsGood() {
-        System.out.println("getCards");
+    public void testGetCardsGood() 
+    {
+        
+        System.out.println("getCardsGood");
         int numberOfCards = 7;
         DeckOfCards instance = new DeckOfCards();
         instance.generateDeck();
@@ -60,13 +62,15 @@ public class DeckOfCardsTest {
      * Test of getCards method, of class DeckOfCards.
      */
     @Test
-    public void testGetCardsBad() {
-        System.out.println("getCards");
+    public void testGetCardsBad() 
+    {
+        
+        System.out.println("getCardsBad");
         int numberOfCards = 7;
         DeckOfCards instance = new DeckOfCards();
-        int expResult = 0;
+        instance.setCards(new ArrayList<>());
         ArrayList<GoFishCard> result = instance.getCards(numberOfCards);
-        assertEquals(expResult, result.size());
+        assertEquals(0, result.size());
         
     }
 
@@ -74,67 +78,60 @@ public class DeckOfCardsTest {
      * Test of getCardOnTop method, of class DeckOfCards.
      */
     @Test
-    public void testGetCardOnTop() {
-        System.out.println("getCardOnTop");
+    public void testGetCardOnTopGood() 
+    {
+        
+        System.out.println("getCardOnTopGood");
         DeckOfCards instance = new DeckOfCards();
-        GoFishCard expResult = null;
+        instance.generateDeck();
         GoFishCard result = instance.getCardOnTop();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(result instanceof GoFishCard);
+        
+    }
+    
+    /**
+     * Test of getCardOnTop method, of class DeckOfCards.
+     */
+    @Test
+    public void testGetCardOnTopBad() 
+    {
+        
+        System.out.println("getCardOnTopBad");
+        DeckOfCards instance = new DeckOfCards();
+        instance.setCards(new ArrayList<>());
+        GoFishCard result = instance.getCardOnTop();
+        assertFalse(result instanceof GoFishCard);
+        
     }
 
     /**
      * Test of getDeckSize method, of class DeckOfCards.
      */
     @Test
-    public void testGetDeckSize() {
-        System.out.println("getDeckSize");
+    public void testGetDeckSizeGood() 
+    {
+        
+        System.out.println("getDeckSizeGood");
         DeckOfCards instance = new DeckOfCards();
-        int expResult = 0;
+        instance.generateDeck();
         int result = instance.getDeckSize();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(52, result);
+        
     }
-
+    
     /**
-     * Test of shuffle method, of class DeckOfCards.
+     * Test of getDeckSize method, of class DeckOfCards.
      */
     @Test
-    public void testShuffle() {
-        System.out.println("shuffle");
+    public void testGetDeckSizeBoundary() 
+    {
+        
+        System.out.println("getDeckSizeBoundary");
         DeckOfCards instance = new DeckOfCards();
-        instance.shuffle();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setCards method, of class DeckOfCards.
-     */
-    @Test
-    public void testSetCards() {
-        System.out.println("setCards");
-        ArrayList<GoFishCard> cards = null;
-        DeckOfCards instance = new DeckOfCards();
-        instance.setCards(cards);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of toString method, of class DeckOfCards.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        DeckOfCards instance = new DeckOfCards();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setCards(new ArrayList<>());
+        int result = instance.getDeckSize();
+        assertEquals(0, result);
+        
     }
     
 }

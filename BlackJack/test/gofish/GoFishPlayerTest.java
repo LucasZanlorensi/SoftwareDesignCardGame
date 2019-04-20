@@ -47,7 +47,7 @@ public class GoFishPlayerTest {
     public void testFishGood() 
     {
         
-        System.out.println("fish");
+        System.out.println("fishGood");
         DeckOfCards pool = new DeckOfCards();
         pool.generateDeck();
         GoFishPlayer instance = new GoFishPlayer("Tester");
@@ -61,7 +61,7 @@ public class GoFishPlayerTest {
      */
     @Test
     public void testFishBad() {
-        System.out.println("fish");
+        System.out.println("fishBad");
         DeckOfCards pool = new DeckOfCards();
         pool.generateDeck();
         
@@ -81,7 +81,7 @@ public class GoFishPlayerTest {
      */
     @Test
     public void testFishBoundary() {
-        System.out.println("fish");
+        System.out.println("fishBoundary");
         DeckOfCards pool = new DeckOfCards();
         pool.generateDeck();
         
@@ -103,7 +103,7 @@ public class GoFishPlayerTest {
     public void testGetNumberOfCardsInHandGood() 
     {
         
-        System.out.println("getNumberOfCardsInHand");
+        System.out.println("getNumberOfCardsInHandGood");
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
         cards.add(new GoFishCard(suit.SPADES,value.ACE));
@@ -123,7 +123,7 @@ public class GoFishPlayerTest {
     public void testGetNumberOfCardsInHandBoundary() 
     {
         
-        System.out.println("getNumberOfCardsInHand");
+        System.out.println("getNumberOfCardsInHandBoundary");
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
         cards.add(new GoFishCard(suit.SPADES,value.ACE));
@@ -140,7 +140,7 @@ public class GoFishPlayerTest {
     public void testCheckHandGood() 
     {
         
-        System.out.println("checkHand");
+        System.out.println("checkHandGood");
         GoFishCard.value v = value.ACE;
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
@@ -161,7 +161,7 @@ public class GoFishPlayerTest {
     public void testCheckHandBad() 
     {
         
-        System.out.println("checkHand");
+        System.out.println("checkHandBad");
         GoFishCard.value v = value.ACE;
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
@@ -179,7 +179,7 @@ public class GoFishPlayerTest {
     public void testCheckHandBoundary() 
     {
         
-        System.out.println("checkHand");
+        System.out.println("checkHandBoundary");
         GoFishCard.value v = value.ACE;
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
@@ -199,7 +199,7 @@ public class GoFishPlayerTest {
     public void testGetSetsGood() 
     {
         
-        System.out.println("getSets");
+        System.out.println("getSetsGood");
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
         cards.add(new GoFishCard(suit.SPADES,value.ACE));
@@ -223,7 +223,7 @@ public class GoFishPlayerTest {
     public void testGetSetsBoundary() 
     {
         
-        System.out.println("getSets");
+        System.out.println("getSetsBoundary");
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
         cards.add(new GoFishCard(suit.SPADES,value.ACE));
@@ -238,7 +238,7 @@ public class GoFishPlayerTest {
      */
     @Test
     public void testGiveCardsGood() {
-        System.out.println("giveCards");
+        System.out.println("giveCardsGood");
         GoFishCard.value v = value.ACE;
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
@@ -260,7 +260,7 @@ public class GoFishPlayerTest {
      */
     @Test
     public void testGiveCardsBoundary() {
-        System.out.println("giveCards");
+        System.out.println("giveCardsBoundary");
         GoFishCard.value v = value.ACE;
         GoFishPlayer instance = new GoFishPlayer("Tester");
         ArrayList<GoFishCard> cards = new ArrayList<>();
