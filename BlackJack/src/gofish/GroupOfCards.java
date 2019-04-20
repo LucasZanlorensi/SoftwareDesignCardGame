@@ -44,7 +44,10 @@ public class GroupOfCards
      * @return the size of the group of cards
      */
     public int getSize() {
-        return size;
+        if (cards != null) {
+            return cards.size();
+        }
+        return 0;
     }
 
     /**

@@ -14,6 +14,7 @@ public class GoFish extends Game{
     
     DeckOfCards pool;
     GoFishPlayer computer;
+    GoFishPlayer player;
     String playerGuess;
     boolean validGuess;
     
@@ -23,19 +24,17 @@ public class GoFish extends Game{
         computer = new GoFishPlayer("Computer");
         pool = new DeckOfCards();
         pool.generateDeck();
+        pool.shuffle();
     }
     
     @Override
     public void play() {
-        GoFishPlayer player = ((GoFishPlayer) super.getPlayers().get(0));
-        pool.shuffle();
+        player = ((GoFishPlayer) super.getPlayers().get(0));
         
         Scanner input = new Scanner(System.in);
         boolean playerHadToFish, computerHadToFish;
         computer.addCardsToHand(pool.getCards(7));
         player.addCardsToHand(pool.getCards(7));
-        
-        
         
         GoFishCard.value userChoice = null, computerChoice = null;
         ArrayList <GoFishCard> cardsTakenFromComputer = new ArrayList<>();
@@ -67,7 +66,7 @@ public class GoFish extends Game{
                     if(!validGuess)
                         System.out.print("\nInvalid card. Please ask for another card: ");
 
-                }while(!validGuess);
+                } while(!validGuess);
 
                 cardsTakenFromComputer = computer.giveCards(userChoice);
                 //checks if the computer had the card the user asked for
@@ -82,8 +81,8 @@ public class GoFish extends Game{
                     playerHadToFish = true;
                 }
                 player.countSets();
-                System.out.printf("\nYou have %d completed sets\n", player.getSets());
-            } while (!playerHadToFish);
+                player.printCompletedSets();
+            } while(!playerHadToFish);
             
             do {
                 //computer's turn
@@ -132,29 +131,38 @@ public class GoFish extends Game{
                         break;
                 }
 
-                System.out.println("\nThe computer chose: " + computerChoice);
+                System.out.println("\n\nThe computer chose: " + computerChoice);
                 cardsGivenTocomputer = player.giveCards(computerChoice);
 
                 if (cardsGivenTocomputer.size() > 0) {
-                    System.out.printf("\nThe computer took your %d %s(S)", cardsGivenTocomputer.size(), computerChoice.name());
+                    System.out.printf("The computer took your %d %s(S)", cardsGivenTocomputer.size(), computerChoice.name());
                     computer.addCardsToHand(cardsGivenTocomputer);
                 }
                 else {
-                    System.out.println("The computer went fishing!");
+                    System.out.println("\nThe computer went fishing!");
                     computer.fish(pool);
                     computerHadToFish = true;
                 }
                 computer.countSets();
+                computer.printCompletedSets();
             } while (!computerHadToFish);
         }
-        while (pool.getDeckSize() > 0);
+        while (pool.getDeckSize() > 0 || player.getNumberOfCardsInHand() > 0 || computer.getNumberOfCardsInHand() > 0 );
+        computer.countSets();
+        player.countSets();
+        
+        declareWinner();
     }
 
     
     
     @Override
     public void declareWinner() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        
+        if (computer.getSets() > player.getSets())
+            System.out.printf("Better luck next time! the computer had %d sets, and you had %d sets", computer.getSets(), player.getSets());
+        else
+            System.out.printf("You won! You had %d sets, and the computer had %d sets", player.getSets(), computer.getSets());
     }
-    
 }

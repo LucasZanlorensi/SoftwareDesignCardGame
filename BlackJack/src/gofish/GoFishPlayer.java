@@ -14,13 +14,11 @@ public class GoFishPlayer extends Player{
 
     private CardHand hand;
     private ArrayList<GoFishCard> completedSets;
-    private int sets;
     
     public GoFishPlayer(String name) {
         super(name);
         hand = new CardHand(0);
         completedSets = new ArrayList<>();
-        sets = 0;
     }
     
     public void addCardsToHand(ArrayList <GoFishCard> cards){
@@ -40,6 +38,10 @@ public class GoFishPlayer extends Player{
         }
     }
     
+    public int getNumberOfCardsInHand() {
+        return hand.getSize();
+    }
+    
     @Override
     public void play() {
         System.out.println(super.getPlayerID() + "'s turn");
@@ -57,7 +59,6 @@ public class GoFishPlayer extends Player{
     
     public void countSets(){
         ArrayList<GoFishCard> cardsToAddToCompletedPile = new ArrayList<>();;
-        sets = 0;
         GoFishCard card = null, card1 = null;
         
         for (Iterator<GoFishCard> cards = hand.getCards().iterator(); cards.hasNext();) {
@@ -69,11 +70,10 @@ public class GoFishPlayer extends Player{
                     numberOfSimilars++;
                 }
                 if (numberOfSimilars == 4) {
-                    System.out.printf("\nYou have 4 of %s", card.getValue().toString());
                     if (!cardsToAddToCompletedPile.contains(card1))
                         cardsToAddToCompletedPile.add(card1);
                     if (!cardsToAddToCompletedPile.contains(card))
-                        cardsToAddToCompletedPile.add(card1);
+                        cardsToAddToCompletedPile.add(card);
                 }
             }  
         }
@@ -82,16 +82,19 @@ public class GoFishPlayer extends Player{
                 completedSets.add(hand.getCards().remove(hand.getCards().indexOf(iterator.next())));
             }
         }
-        for (Iterator<GoFishCard> iterator = completedSets.iterator(); iterator.hasNext();){
-            GoFishCard cardInCompletedSet = iterator.next();
-            System.out.println(cardInCompletedSet + " in completed\n");
+    }
+    
+    public void printCompletedSets() {
+        if (completedSets.size() > 0) {
+            for (int i = 0; i < completedSets.size(); i = i + 4) {
+                System.out.printf("\n%s has a full set of %s",  super.getPlayerID(),completedSets.get(i).getValue());
+            }
         }
-        
     }
     
     public int getSets() {
         countSets();
-        return this.sets;
+        return completedSets.size() / 4;
     }
     
     public ArrayList <GoFishCard> giveCards(GoFishCard.value value) {
