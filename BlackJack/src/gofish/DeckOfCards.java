@@ -36,7 +36,6 @@ public class DeckOfCards extends GroupOfCards{
 
     }
     
-    
     public DeckOfCards() {
         super(0);
     }
