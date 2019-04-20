@@ -21,7 +21,7 @@ public class GoFishPlayer extends Player{
      */
     public GoFishPlayer(String name) {
         super(name);
-        hand = new CardHand(0);
+        hand = new CardHand();
         completedSets = new ArrayList<>();
     }
     
@@ -38,7 +38,7 @@ public class GoFishPlayer extends Player{
      */
     public void clearHandAndSets() {
         completedSets = new ArrayList<>();
-        hand = new CardHand(0);
+        hand = new CardHand();
     }
 
     /**
@@ -81,7 +81,7 @@ public class GoFishPlayer extends Player{
     /**
      * 
      * @param v
-     * @return 
+     * @return whether the hand contains a group of 4 of the given card value
      */
     public boolean checkHand(GoFishCard.value v) {
         int numberOfCards = 0;
@@ -101,6 +101,7 @@ public class GoFishPlayer extends Player{
         ArrayList<GoFishCard> cardsToAddToCompletedPile = new ArrayList<>();;
         GoFishCard card, card1;
         
+        //iterates through all the deck twice to check for groups of 4 for each card in the hand
         for (Iterator<GoFishCard> cards = hand.getCards().iterator(); cards.hasNext();) {
             int numberOfSimilars = 0;
             card = cards.next();
@@ -109,6 +110,7 @@ public class GoFishPlayer extends Player{
                 if (card.getValue().equals(card1.getValue())) {
                     numberOfSimilars++;
                 }
+                //if there are 4 cards of the same value, add them all to the auxiliary ArrayList of cards
                 if (numberOfSimilars == 4) {
                     if (!cardsToAddToCompletedPile.contains(card1))
                         cardsToAddToCompletedPile.add(card1);

@@ -17,8 +17,8 @@ public class CardHand extends GroupOfCards{
      * Constructor
      * @param size 
      */
-    CardHand(int size){
-        super(size);
+    CardHand(){
+        super();
         cards = new ArrayList<>();
     }
         

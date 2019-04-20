@@ -19,14 +19,13 @@ public class GroupOfCards
    
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
-    private int size;//the size of the grouping
     
     /**
      * Constructor
      * @param givenSize 
      */
-    public GroupOfCards(int givenSize) {
-        size = givenSize;
+    public GroupOfCards() {
+       
     }
     
     /**
@@ -54,11 +53,5 @@ public class GroupOfCards
         return 0;
     }
 
-    /**
-     * @param givenSize the max size for the group of cards
-     */
-    public void setSize(int givenSize) {
-        size = givenSize;
-    }
     
 }//end class
